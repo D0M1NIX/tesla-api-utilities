@@ -1,0 +1,1 @@
+export const UNITED_STATES = 'US';
