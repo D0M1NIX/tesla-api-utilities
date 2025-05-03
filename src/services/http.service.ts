@@ -1,5 +1,7 @@
-import https from 'https';
-import fetch, { RequestInit } from 'node-fetch';
+import fetch from 'node-fetch';
+import fetchCookie from 'fetch-cookie';
+
+const fetchWithCookies = fetchCookie(fetch);
 
 export class HttpService {
     private baseUrl: string;
@@ -13,29 +15,41 @@ export class HttpService {
         const endpointWithQueryString = `${this.baseUrl}${endpoint}${queryString ? '?' + queryString : ''}`;
         
         const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 10000); // 10-second timeout
+        const timeout = setTimeout(() => controller.abort(), 15000); // 15-second timeout
         
-        const cert = await fetchCertificate();
-        console.log(`Certificate: ${cert}\n`);
-        const httpsAgent = new https.Agent({
-            ca: cert,
-            rejectUnauthorized: true
-        });
+        const headers = {
+            'User-Agent': 'Mozilla/5.0',
+            'Host': 'www.tesla.com',
+            'Accept': '*/*',
+            'Connection': 'keep-alive',
+        };
         
         try {
-            console.log(`GET ${endpointWithQueryString}\n`);
-            const response = await fetch(endpointWithQueryString, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Origin': 'https://www.tesla.com', // Mimic the browser's origin
-                },
-                agent: httpsAgent,
+            console.log(`Getting required cookies from Tesla...`);
+            const dummy = await fetchWithCookies(this.baseUrl, {
+                headers: headers,
                 signal: controller.signal,
             });
+            console.log(`Base call completed - ${dummy.status} ${dummy.statusText}`);
+
+            clearTimeout(timeout);
+
+            console.log(`Calling inventory endpoint...`);
+            const response = await fetchWithCookies(endpointWithQueryString, {
+                headers: headers,
+                signal: controller.signal,
+            });
+            console.log(`Inventory call completed - ${response.status} ${response.statusText}`);
+            // response.headers.forEach((value, key) => {
+            //     console.log(`${key}: ${value}`);
+            // });
 
             clearTimeout(timeout);
 
             if (!response.ok) {
+                if (response.status === 429) {
+                    throw new Error('Rate limited');
+                }
                 const errorString = `HTTP error! status: ${response.status}`;
                 console.error(errorString);
                 throw new Error(errorString);
@@ -65,14 +79,4 @@ export class HttpService {
         }
         return JSON.parse(await response.text()) as T;
     }
-}
-
-async function fetchCertificate(): Promise<string> {
-    return new Promise((resolve, reject) => {
-        https.get('https://cacerts.digicert.com/GeoTrustRSACA2018.crt.pem', (res) => {
-            let data = '';
-            res.on('data', (chunk) => (data += chunk));
-            res.on('end', () => resolve(data));
-        }).on('error', (err) => reject(err));
-    });
 }

@@ -11,9 +11,6 @@ export interface TeslaInventoryQuery {
     super_region: string;
     PaymentType: string;
     paymentRange: number;
-    lng: number;
-    lat: number;
     zip: string;
-    range: number;
     region: string;
 }

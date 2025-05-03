@@ -23,10 +23,7 @@ const vehicleSpecs = {
         super_region: 'north america',
         PaymentType: 'cash',
         paymentRange: 60000,
-        lng: -122.4194,
-        lat: 37.7749,
         zip: "54636",
-        range: 0,
         region: Region.WISCONSIN
     } as TeslaInventoryQuery,
     offset: 0,
