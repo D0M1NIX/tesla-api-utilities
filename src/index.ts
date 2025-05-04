@@ -69,16 +69,16 @@ teslaService.getNewInventoryV4(vehicleSpecsMY)
         const outputPath = path.join(currentPath, 'model-y-output.json');
         console.log(`Model Y\'s - ${outputPath}`);
         fs.writeFileSync(outputPath, output, 'utf-8');
-    }).catch((error) => {
-        console.error('Error fetching vehicles:', error);
-    });
 
-teslaService.getNewInventoryV4(vehicleSpecsM3)
-    .then((vehicles) => {
-        const output = JSON.stringify(vehicles, null, 2);
-        const outputPath = path.join(currentPath, 'model-3-output.json');
-        console.log(`Model 3\'s - ${outputPath}`);
-        fs.writeFileSync(outputPath, output, 'utf-8');
+        teslaService.getNewInventoryV4(vehicleSpecsM3)
+        .then((vehicles) => {
+            const output = JSON.stringify(vehicles, null, 2);
+            const outputPath = path.join(currentPath, 'model-3-output.json');
+            console.log(`Model 3\'s - ${outputPath}`);
+            fs.writeFileSync(outputPath, output, 'utf-8');
+        }).catch((error) => {
+            console.error('Error fetching Model 3\'s:', error);
+        });
     }).catch((error) => {
-        console.error('Error fetching vehicles:', error);
+        console.error('Error fetching Model Y\'s:', error);
     });
