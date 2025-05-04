@@ -9,6 +9,9 @@ import * as Condition from './constants/conditions.const';
 import * as Order from './constants/ordering.const';
 import * as Market from './constants/markets.const';
 import * as Region from './constants/regions.const';
+import * as fs from 'fs';
+const path = require('path');
+const os = require('os');
 
 const teslaService = new TeslaService();
 const vehicleSpecsMY = {
@@ -57,16 +60,22 @@ const vehicleSpecsM3 = {
     version: "v2"
 } as VehicleSpecs;
 
+const desktopPath = path.join(os.homedir(), 'Desktop/');
+
 teslaService.getNewInventoryV4(vehicleSpecsMY)
     .then((vehicles) => {
-        console.log('Model Y\'s:', JSON.stringify(vehicles, null, 2));
+        const output = JSON.stringify(vehicles, null, 2);
+        console.log('Model Y\'s:', output);
+        fs.writeFileSync(`./model-y-output.json`, output, 'utf-8');
     }).catch((error) => {
         console.error('Error fetching vehicles:', error);
     });
 
 teslaService.getNewInventoryV4(vehicleSpecsM3)
     .then((vehicles) => {
-        console.log('Model 3\'s:', JSON.stringify(vehicles, null, 2));
+        const output = JSON.stringify(vehicles, null, 2);
+        console.log('Model 3\'s:', output);
+        fs.writeFileSync(`./model-3-output.json`, output, 'utf-8');
     }).catch((error) => {
         console.error('Error fetching vehicles:', error);
     });
