@@ -12,6 +12,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "publishConfig": {
+    "@LimpHz:registry": "https://npm.pkg.github.com"
+  },
   "devDependencies": {
     "@types/axios": "^0.9.36",
     "@types/node": "^22.15.3",
