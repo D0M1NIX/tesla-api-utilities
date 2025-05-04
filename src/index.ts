@@ -36,7 +36,7 @@ const vehicleSpecs = {
 
 teslaService.getNewInventoryV4(vehicleSpecs)
     .then((vehicles) => {
-        console.log('Vehicles:', vehicles);
+        console.log('Vehicles:', JSON.stringify(vehicles, null, 2));
     }).catch((error) => {
         console.error('Error fetching vehicles:', error);
     });
