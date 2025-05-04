@@ -1,5 +1,5 @@
 {
-  "name": "tesla-api-utilities",
+  "name": "@LimpHz/tesla-api-utilities",
   "version": "0.1.0-alpha",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "@LimpHz:registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
     "@types/axios": "^0.9.36",
