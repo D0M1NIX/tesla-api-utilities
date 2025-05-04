@@ -1,4 +1,4 @@
-import { TeslaInventoryQueryOptions } from "./tesla-inventory-query-options.model";
+import { TeslaInventoryQueryOptions } from "./inventory-query-options.model";
 
 export interface TeslaInventoryQuery {
     model: string;

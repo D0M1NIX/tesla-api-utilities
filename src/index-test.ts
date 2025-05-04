@@ -1,6 +1,6 @@
-import { VehicleSpecs } from './models/vehicle/vehicle-specs.model';
+import { VehicleSpecs } from './models/inventory-v4/vehicle/vehicle-specs.model';
 import { TeslaService } from './services/tesla.service';
-import { TeslaInventoryQuery } from './models/vehicle/tesla-inventory-query.model';
+import { TeslaInventoryQuery } from './models/inventory-v4/inventory-query.model';
 import * as Model from './constants/models.const';
 import * as ArrangeBy from './constants/arrange-by-options.const';
 import * as Condition from './constants/conditions.const';

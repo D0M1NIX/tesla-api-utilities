@@ -1,5 +1,5 @@
-import { VehicleSpecs } from "../models/vehicle/vehicle-specs.model";
-import { Vehicle } from "../models/vehicle/vehicle.model";
+import { InventoryResponse } from "../models/inventory-v4/inventory-response.model";
+import { VehicleSpecs } from "../models/inventory-v4/vehicle/vehicle-specs.model";
 import { HttpService } from "./http.service";
 
 const baseUrl = "https://www.tesla.com/";
@@ -7,9 +7,7 @@ const baseUrl = "https://www.tesla.com/";
 const httpService = new HttpService(baseUrl);
 
 export class TeslaService {
-    async getNewInventoryV4(vehicleSpecs: VehicleSpecs): Promise<any> {
-        const response = await httpService.get<any>('inventory/api/v4/inventory-results', vehicleSpecs);
-    
-        return response;
+    async getNewInventoryV4(vehicleSpecs: VehicleSpecs): Promise<InventoryResponse> {
+        return await httpService.get<InventoryResponse>('inventory/api/v4/inventory-results', vehicleSpecs);
     }
 }
