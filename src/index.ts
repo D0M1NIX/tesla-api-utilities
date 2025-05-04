@@ -61,12 +61,14 @@ const vehicleSpecsM3 = {
 } as VehicleSpecs;
 
 const desktopPath = path.join(os.homedir(), 'Desktop/');
+const currentPath = process.cwd();
 
 teslaService.getNewInventoryV4(vehicleSpecsMY)
     .then((vehicles) => {
         const output = JSON.stringify(vehicles, null, 2);
-        console.log('Model Y\'s:', output);
-        fs.writeFileSync(`./model-y-output.json`, output, 'utf-8');
+        const outputPath = path.join(currentPath, 'model-y-output.json');
+        console.log(`Model Y\'s - ${outputPath}`);
+        fs.writeFileSync(outputPath, output, 'utf-8');
     }).catch((error) => {
         console.error('Error fetching vehicles:', error);
     });
@@ -74,8 +76,9 @@ teslaService.getNewInventoryV4(vehicleSpecsMY)
 teslaService.getNewInventoryV4(vehicleSpecsM3)
     .then((vehicles) => {
         const output = JSON.stringify(vehicles, null, 2);
-        console.log('Model 3\'s:', output);
-        fs.writeFileSync(`./model-3-output.json`, output, 'utf-8');
+        const outputPath = path.join(currentPath, 'model-3-output.json');
+        console.log(`Model 3\'s - ${outputPath}`);
+        fs.writeFileSync(outputPath, output, 'utf-8');
     }).catch((error) => {
         console.error('Error fetching vehicles:', error);
     });
