@@ -2,3 +2,5 @@ src/
 *.log
 node_modules/
 model-*-output.json
+tsconfig.json
+.github/
