@@ -1,10 +1,6 @@
-import * as fs from 'fs';
-import * as path from 'path';
-
-const modelsPath = './';
-const modelFiles = fs.readdirSync(modelsPath).filter(file => file.endsWith('.ts'));
-
-modelFiles.forEach(file => {
-    const modelName = path.basename(file, '.ts');
-    module.exports[modelName] = require(path.join(modelsPath, file));
-});
+export * from './arrange-by-options.const';
+export * from './conditions.const';
+export * from './markets.const';
+export * from './ordering.const';
+export * from './paint-options.const';
+export * from './regions.const';
