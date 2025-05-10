@@ -1,4 +1,3 @@
-src/
 *.ts
 *.log
 node_modules/
