@@ -1,25 +1,20 @@
 import { VehicleSpecs } from './models/inventory-v4/vehicle/vehicle-specs.model';
 import { TeslaService } from './services/tesla.service';
 import { TeslaInventoryQuery } from './models/inventory-v4/inventory-query.model';
-import * as Model from './constants/models.const';
-import * as ArrangeBy from './constants/arrange-by-options.const';
-import * as Condition from './constants/conditions.const';
-import * as Order from './constants/ordering.const';
-import * as Market from './constants/markets.const';
-import * as Region from './constants/regions.const';
 import * as fs from 'fs';
+import { ArrangeByOptions, Conditions, Markets, Models, Ordering } from './constants/constants.module';
 const path = require('path');
 const os = require('os');
 
 const teslaService = new TeslaService();
 const vehicleSpecsMY = {
     query: {
-        model: Model.MODEL_Y,
-        condition: Condition.NEW,
+        model: Models.MODEL_Y,
+        condition: Conditions.NEW,
         options: {},
-        arrangeby: ArrangeBy.SAVINGS,
-        order: Order.DESCENDING,
-        market: Market.UNITED_STATES,
+        arrangeby: ArrangeByOptions.SAVINGS,
+        order: Ordering.DESCENDING,
+        market: Markets.UNITED_STATES,
         language: 'en',
         super_region: 'north america',
         PaymentType: 'cash',
@@ -37,12 +32,12 @@ const vehicleSpecsMY = {
 
 const vehicleSpecsM3 = {
     query: {
-        model: Model.MODEL_3,
-        condition: Condition.NEW,
+        model: Models.MODEL_3,
+        condition: Conditions.NEW,
         options: {},
-        arrangeby: ArrangeBy.SAVINGS,
-        order: Order.DESCENDING,
-        market: Market.UNITED_STATES,
+        arrangeby: ArrangeByOptions.SAVINGS,
+        order: Ordering.DESCENDING,
+        market: Markets.UNITED_STATES,
         language: 'en',
         super_region: 'north america',
         PaymentType: 'cash',
@@ -60,12 +55,12 @@ const vehicleSpecsM3 = {
 
 const vehicleSpecsMS = {
     query: {
-        model: Model.MODEL_S,
-        condition: Condition.NEW,
+        model: Models.MODEL_S,
+        condition: Conditions.NEW,
         options: {},
-        arrangeby: ArrangeBy.SAVINGS,
-        order: Order.DESCENDING,
-        market: Market.UNITED_STATES,
+        arrangeby: ArrangeByOptions.SAVINGS,
+        order: Ordering.DESCENDING,
+        market: Markets.UNITED_STATES,
         language: 'en',
         super_region: 'north america',
         PaymentType: 'cash',
@@ -83,12 +78,12 @@ const vehicleSpecsMS = {
 
 const vehicleSpecsMX = {
     query: {
-        model: Model.MODEL_X,
-        condition: Condition.NEW,
+        model: Models.MODEL_X,
+        condition: Conditions.NEW,
         options: {},
-        arrangeby: ArrangeBy.SAVINGS,
-        order: Order.DESCENDING,
-        market: Market.UNITED_STATES,
+        arrangeby: ArrangeByOptions.SAVINGS,
+        order: Ordering.DESCENDING,
+        market: Markets.UNITED_STATES,
         language: 'en',
         super_region: 'north america',
         PaymentType: 'cash',

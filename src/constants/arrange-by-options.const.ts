@@ -1,1 +1,3 @@
-export const SAVINGS = 'Savings';
+export class ArrangeByOptions {
+    static readonly SAVINGS = 'Savings';
+}

@@ -1,2 +1,4 @@
-export const ASCENDING = 'asc';
-export const DESCENDING = 'desc';
+export class Ordering {
+    static readonly ASCENDING = 'asc';
+    static readonly DESCENDING = 'desc';
+}

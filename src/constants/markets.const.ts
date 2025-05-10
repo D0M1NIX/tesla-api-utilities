@@ -1,1 +1,3 @@
-export const UNITED_STATES = 'US';
+export class Markets {
+    static readonly UNITED_STATES = 'US';
+}

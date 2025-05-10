@@ -1,2 +1,4 @@
-export const NEW = 'new';
-export const USED = 'used';
+export class Conditions {
+    static readonly NEW = 'new';
+    static readonly USED = 'used';
+}

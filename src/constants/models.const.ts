@@ -1,4 +1,6 @@
-export const MODEL_3 = 'm3';
-export const MODEL_Y = 'my';
-export const MODEL_S = 'ms';
-export const MODEL_X = 'mx';
+export class Models {
+    static readonly MODEL_3 = 'm3';
+    static readonly MODEL_Y = 'my';
+    static readonly MODEL_S = 'ms';
+    static readonly MODEL_X = 'mx';
+}

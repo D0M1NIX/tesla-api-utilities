@@ -1,6 +1,8 @@
-export const WHITE = 'WHITE';
-export const BLACK = 'BLACK';
-export const SILVER = 'SILVER';
-export const BLUE = 'BLUE';
-export const RED = 'RED';
-export const GRAY = 'GRAY';
+export class PaintOptions {
+    static readonly WHITE = 'WHITE';
+    static readonly BLACK = 'BLACK';
+    static readonly SILVER = 'SILVER';
+    static readonly BLUE = 'BLUE';
+    static readonly RED = 'RED';
+    static readonly GRAY = 'GRAY';
+}
