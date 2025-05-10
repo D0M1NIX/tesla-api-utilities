@@ -1,4 +1,3 @@
-*.ts
 *.log
 node_modules/
 model-*-output.json
