@@ -1,12 +1,12 @@
 {
   "name": "@LimpHz/tesla-api-utilities",
-  "version": "0.1.6-alpha",
+  "version": "0.1.5-alpha",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "node index-test.js",
+    "start": "node dist/index-test.js",
     "build:start": "npm run build && npm run start"
   },
   "keywords": [],
