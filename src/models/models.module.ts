@@ -1,10 +1,37 @@
-import * as fs from 'fs';
-import * as path from 'path';
-
-const modelsPath = path.join(__dirname, 'vehicle');
-const modelFiles = fs.readdirSync(modelsPath).filter(file => file.endsWith('.ts'));
-
-modelFiles.forEach(file => {
-    const modelName = path.basename(file, '.ts');
-    module.exports[modelName] = require(path.join(modelsPath, file));
-});
+export * from './inventory-v4/inventory-paint-options.model';
+export * from './inventory-v4/inventory-query-options.model';
+export * from './inventory-v4/inventory-query.model';
+export * from './inventory-v4/inventory-response.model';
+export * from './inventory-v4/vehicle/compositor-views.model';
+export * from './inventory-v4/vehicle/federal-incentives.model';
+export * from './inventory-v4/vehicle/flexible-option.model';
+export * from './inventory-v4/vehicle/lexicon-default-option.model';
+export * from './inventory-v4/vehicle/option-code-data.model';
+export * from './inventory-v4/vehicle/option-code-pricing.model';
+export * from './inventory-v4/vehicle/order-fee.model';
+export * from './inventory-v4/vehicle/vehicle-specs.model';
+export * from './inventory-v4/vehicle/vehicle.model';
+export * from './inventory-v4/vehicle/warranty-data.model';
+export * from './inventory-v4/vehicle/cash-details/cash-details-cash.model';
+export * from './inventory-v4/vehicle/cash-details/cash-details.model';
+export * from './inventory-v4/vehicle/compositor-views/compositor-views-custom.model';
+export * from './inventory-v4/vehicle/compositor-views/external-crop.model';
+export * from './inventory-v4/vehicle/compositor-views/external-zoom.model';
+export * from './inventory-v4/vehicle/finplat-details/auto-lease-operational-lease-ct-private-calculated-inputs.model';
+export * from './inventory-v4/vehicle/finplat-details/auto-lease-operational-lease-ct-private-calculated-outputs.model';
+export * from './inventory-v4/vehicle/finplat-details/auto-lease-operational-lease-ct-private-calculated.model';
+export * from './inventory-v4/vehicle/finplat-details/auto-lease-operational-lease-ct-private.model';
+export * from './inventory-v4/vehicle/finplat-details/auto-loan-loan-ct-private-calculated-inputs.model';
+export * from './inventory-v4/vehicle/finplat-details/auto-loan-loan-ct-private-calculated-outputs.model';
+export * from './inventory-v4/vehicle/finplat-details/auto-loan-loan-ct-private-calculated.model';
+export * from './inventory-v4/vehicle/finplat-details/auto-loan-loan-ct-private.model';
+export * from './inventory-v4/vehicle/finplat-details/finplat-detail.model';
+export * from './inventory-v4/vehicle/finplat-details/finplat-details-with-tax-incentive.model';
+export * from './inventory-v4/vehicle/option-code-specs/option-code-specs-callouts-options.model';
+export * from './inventory-v4/vehicle/option-code-specs/option-code-specs-callouts.model';
+export * from './inventory-v4/vehicle/option-code-specs/option-code-specs-design.model';
+export * from './inventory-v4/vehicle/option-code-specs/option-code-specs-opts-options.model';
+export * from './inventory-v4/vehicle/option-code-specs/option-code-specs-opts.model';
+export * from './inventory-v4/vehicle/option-code-specs/option-code-specs-specs-option.model';
+export * from './inventory-v4/vehicle/option-code-specs/option-code-specs-specs.model';
+export * from './inventory-v4/vehicle/option-code-specs/option-code-specs.model';
