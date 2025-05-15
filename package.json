@@ -1,6 +1,6 @@
 {
   "name": "@limphz/tesla-api-utilities",
-  "version": "0.1.14-alpha",
+  "version": "0.1.15-alpha",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,8 +12,9 @@
   },
   "keywords": [],
   "exports": {
+    ".": "./dist/index.js",
     "./models": "./dist/models/models.js",
-    ".": "./dist/index.js"
+    "./constants": "./dist/constants/constants.js"
   },
   "author": "",
   "license": "ISC",
